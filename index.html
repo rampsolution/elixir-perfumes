@@ -5,34 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELIXIR | Alta Perfumería</title>
     <style>
+        /* Diseño Base Oscuro y Premium */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
-        body { background-color: #faf9f6; color: #222; }
+        body { background-color: #050505; color: #fff; }
         
         /* Encabezado */
-        header { background-color: #0a0a0a; color: #d4af37; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; }
-        header h1 { font-size: 1.5rem; letter-spacing: 4px; text-transform: uppercase; font-weight: bold; }
+        header { background-color: #000; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        header h1 { color: #d4af37; font-size: 1.8rem; letter-spacing: 4px; text-transform: uppercase; }
         nav ul { list-style: none; display: flex; gap: 20px; }
-        nav a { color: #fff; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
+        nav a { color: #fff; text-decoration: none; font-size: 1rem; transition: 0.3s; }
         nav a:hover { color: #d4af37; }
         
-        /* Sección Hero Minimalista y Elegante */
-        .hero { background-color: #1a1a1a; color: #d4af37; text-align: center; padding: 180px 20px; border-bottom: 3px solid #d4af37; }
-        .hero h2 { font-size: 5rem; font-weight: 300; letter-spacing: 12px; text-transform: uppercase; }
+        /* Sección Hero */
+        .hero { text-align: center; padding: 120px 20px; background: radial-gradient(circle, #1a1a1a 0%, #050505 100%); border-bottom: 1px solid #d4af37; }
+        .hero h2 { font-size: 5rem; font-weight: 300; letter-spacing: 15px; text-transform: uppercase; color: #d4af37; }
         
-        /* Catálogo */
-        #catalogo { padding: 80px 5%; text-align: center; }
-        #catalogo h2 { font-size: 2.2rem; margin-bottom: 50px; color: #111; letter-spacing: 2px; text-transform: uppercase; }
-        .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+        /* Filtros */
+        .filtros-container { text-align: center; margin: 50px 0 20px 0; }
+        .btn-filtro { background: transparent; border: 1px solid #d4af37; color: #d4af37; padding: 10px 30px; font-size: 1rem; cursor: pointer; border-radius: 30px; margin: 0 10px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-filtro:hover, .btn-filtro.activo { background: #d4af37; color: #000; font-weight: bold; }
+
+        /* Catálogo por Marcas */
+        .marca-section { padding: 40px 5%; }
+        .marca-titulo { font-size: 2.5rem; border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; color: #fff; }
         
-        /* Tarjetas de Producto Premium */
-        .producto-placeholder { background: #fff; padding: 40px 20px; border: 1px solid #eaeaea; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.4s ease; }
-        .producto-placeholder:hover { transform: translateY(-8px); border-color: #d4af37; }
-        .producto-placeholder h3 { font-size: 1.4rem; margin-bottom: 8px; color: #0a0a0a; }
-        .producto-placeholder p.marca { color: #888; font-size: 0.9rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
-        .producto-placeholder p.tipo { display: inline-block; background-color: #f8f5ee; color: #a68a35; padding: 6px 15px; border-radius: 30px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
         
-        /* Pie de página */
-        footer { background-color: #0a0a0a; color: #555; text-align: center; padding: 30px; margin-top: 40px; font-size: 0.9rem; }
+        /* Tarjetas de Producto */
+        .tarjeta { background: #111; border: 1px solid #222; border-radius: 6px; overflow: hidden; transition: transform 0.4s ease, border-color 0.4s ease; }
+        .tarjeta:hover { transform: translateY(-8px); border-color: #d4af37; }
+        .tarjeta img { width: 100%; height: 350px; object-fit: cover; border-bottom: 1px solid #222; }
+        
+        .info { padding: 25px 20px; text-align: center; }
+        .info h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; letter-spacing: 1px; }
+        .info p.genero { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        footer { background-color: #000; color: #444; text-align: center; padding: 30px; margin-top: 60px; font-size: 0.9rem; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -41,82 +49,124 @@
         <div class="logo"><h1>ELIXIR</h1></div>
         <nav>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#catalogo">Catálogo</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="inicio" class="hero">
-            <!-- Diseño minimalista: solo el nombre -->
+        <section class="hero">
             <h2>ELIXIR</h2>
         </section>
 
-        <section id="catalogo">
-            <h2>Nuestra Colección</h2>
-            
-            <div id="grid-productos" class="grid-productos">
-                <!-- Diseñador -->
-                <div class="producto-placeholder">
-                    <h3>1 Million</h3>
-                    <p class="marca">Paco Rabanne</p>
-                    <p class="tipo">Diseñador</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>Eros</h3>
-                    <p class="marca">Versace</p>
-                    <p class="tipo">Diseñador</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>Sauvage</h3>
-                    <p class="marca">Dior</p>
-                    <p class="tipo">Diseñador</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>Y Eau de Parfum</h3>
-                    <p class="marca">Yves Saint Laurent</p>
-                    <p class="tipo">Diseñador</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>Bleu</h3>
-                    <p class="marca">Chanel</p>
-                    <p class="tipo">Diseñador</p>
-                </div>
+        <div id="catalogo" class="filtros-container">
+            <!-- Botones que activan el JavaScript -->
+            <button class="btn-filtro activo" onclick="filtrar('todos', this)">Todos</button>
+            <button class="btn-filtro" onclick="filtrar('hombre', this)">Hombre</button>
+            <button class="btn-filtro" onclick="filtrar('mujer', this)">Mujer</button>
+        </div>
 
-                <!-- Árabes -->
-                <div class="producto-placeholder">
-                    <h3>Club de Nuit Intense</h3>
-                    <p class="marca">Armaf</p>
-                    <p class="tipo">Árabe</p>
+        <!-- SECCIÓN GUCCI -->
+        <section class="marca-section" id="sec-gucci">
+            <h2 class="marca-titulo">Gucci</h2>
+            <div class="grid-productos">
+                <div class="tarjeta" data-genero="mujer">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=500&auto=format&fit=crop" alt="Gucci Bloom">
+                    <div class="info">
+                        <h3>Gucci Bloom</h3>
+                        <p class="genero">Mujer</p>
+                    </div>
                 </div>
-                <div class="producto-placeholder">
-                    <h3>Asad</h3>
-                    <p class="marca">Lattafa</p>
-                    <p class="tipo">Árabe</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>9pm</h3>
-                    <p class="marca">Afnan</p>
-                    <p class="tipo">Árabe</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>Khamrah</h3>
-                    <p class="marca">Lattafa</p>
-                    <p class="tipo">Árabe</p>
-                </div>
-                <div class="producto-placeholder">
-                    <h3>Detour Noir</h3>
-                    <p class="marca">Al Haramain</p>
-                    <p class="tipo">Árabe</p>
+                <div class="tarjeta" data-genero="hombre">
+                    <img src="https://images.unsplash.com/photo-1595532542520-50c18c93de89?q=80&w=500&auto=format&fit=crop" alt="Gucci Guilty">
+                    <div class="info">
+                        <h3>Gucci Guilty</h3>
+                        <p class="genero">Hombre</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- SECCIÓN VERSACE -->
+        <section class="marca-section" id="sec-versace">
+            <h2 class="marca-titulo">Versace</h2>
+            <div class="grid-productos">
+                <div class="tarjeta" data-genero="hombre">
+                    <img src="https://images.unsplash.com/photo-1615160492161-0b19688bc3b2?q=80&w=500&auto=format&fit=crop" alt="Versace Eros">
+                    <div class="info">
+                        <h3>Eros</h3>
+                        <p class="genero">Hombre</p>
+                    </div>
+                </div>
+                <div class="tarjeta" data-genero="mujer">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea47724261f?q=80&w=500&auto=format&fit=crop" alt="Versace Crystal Noir">
+                    <div class="info">
+                        <h3>Crystal Noir</h3>
+                        <p class="genero">Mujer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ÁRABES -->
+        <section class="marca-section" id="sec-arabes">
+            <h2 class="marca-titulo">Perfumería Árabe</h2>
+            <div class="grid-productos">
+                <div class="tarjeta" data-genero="hombre">
+                    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?q=80&w=500&auto=format&fit=crop" alt="Club de Nuit">
+                    <div class="info">
+                        <h3>Club de Nuit Intense</h3>
+                        <p class="genero">Hombre</p>
+                    </div>
+                </div>
+                <div class="tarjeta" data-genero="mujer">
+                    <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?q=80&w=500&auto=format&fit=crop" alt="Khamrah">
+                    <div class="info">
+                        <h3>Khamrah Lattafa</h3>
+                        <p class="genero">Mujer (Unisex)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <p>&copy; 2026 ELIXIR. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- LÓGICA DE LOS FILTROS -->
+    <script>
+        function filtrar(generoSeleccionado, boton) {
+            // 1. Cambiar el color del botón activo
+            let botones = document.querySelectorAll('.btn-filtro');
+            botones.forEach(btn => btn.classList.remove('activo'));
+            boton.classList.add('activo');
+
+            // 2. Mostrar/Ocultar los perfumes según el género
+            let tarjetas = document.querySelectorAll('.tarjeta');
+            tarjetas.forEach(tarjeta => {
+                let generoPerfume = tarjeta.getAttribute('data-genero');
+                
+                if (generoSeleccionado === 'todos' || generoPerfume === generoSeleccionado) {
+                    tarjeta.style.display = 'block';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+
+            // 3. Ocultar el título de la marca si no tiene perfumes de ese género
+            let secciones = document.querySelectorAll('.marca-section');
+            secciones.forEach(seccion => {
+                // Cuenta cuántas tarjetas visibles hay en esta sección
+                let visibles = seccion.querySelectorAll('.tarjeta[style="display: block;"], .tarjeta:not([style="display: none;"])').length;
+                if (visibles > 0) {
+                    seccion.style.display = 'block';
+                } else {
+                    seccion.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

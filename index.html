@@ -3,46 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Elixiir | Perfumes de Diseñador y Árabes</title>
+    <title>ELIXIR | Alta Perfumería</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Arial, sans-serif; }
         body { background-color: #faf9f6; color: #222; }
+        
+        /* Encabezado */
         header { background-color: #0a0a0a; color: #d4af37; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; }
-        header h1 { font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; }
+        header h1 { font-size: 1.5rem; letter-spacing: 4px; text-transform: uppercase; font-weight: bold; }
         nav ul { list-style: none; display: flex; gap: 20px; }
         nav a { color: #fff; text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
         nav a:hover { color: #d4af37; }
-        .hero { background-color: #1a1a1a; color: #d4af37; text-align: center; padding: 100px 20px; border-bottom: 3px solid #d4af37; }
-        .hero h2 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: #ccc; }
-        #catalogo { padding: 60px 5%; text-align: center; }
-        #catalogo h2 { font-size: 2.5rem; margin-bottom: 40px; color: #111; }
-        .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .producto-placeholder { background: #fff; padding: 20px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        footer { background-color: #0a0a0a; color: #666; text-align: center; padding: 20px; margin-top: 40px; }
+        
+        /* Sección Hero Minimalista y Elegante */
+        .hero { background-color: #1a1a1a; color: #d4af37; text-align: center; padding: 180px 20px; border-bottom: 3px solid #d4af37; }
+        .hero h2 { font-size: 5rem; font-weight: 300; letter-spacing: 12px; text-transform: uppercase; }
+        
+        /* Catálogo */
+        #catalogo { padding: 80px 5%; text-align: center; }
+        #catalogo h2 { font-size: 2.2rem; margin-bottom: 50px; color: #111; letter-spacing: 2px; text-transform: uppercase; }
+        .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+        
+        /* Tarjetas de Producto Premium */
+        .producto-placeholder { background: #fff; padding: 40px 20px; border: 1px solid #eaeaea; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.4s ease; }
+        .producto-placeholder:hover { transform: translateY(-8px); border-color: #d4af37; }
+        .producto-placeholder h3 { font-size: 1.4rem; margin-bottom: 8px; color: #0a0a0a; }
+        .producto-placeholder p.marca { color: #888; font-size: 0.9rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .producto-placeholder p.tipo { display: inline-block; background-color: #f8f5ee; color: #a68a35; padding: 6px 15px; border-radius: 30px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Pie de página */
+        footer { background-color: #0a0a0a; color: #555; text-align: center; padding: 30px; margin-top: 40px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo"><h1>Elixiir</h1></div>
-        <nav><ul><li><a href="#inicio">Inicio</a></li><li><a href="#catalogo">Catálogo</a></li></ul></nav>
+        <div class="logo"><h1>ELIXIR</h1></div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
         <section id="inicio" class="hero">
-            <h2>Descubre tu esencia</h2>
-            <p>La mejor selección de perfumería árabe y de diseñador.</p>
+            <!-- Diseño minimalista: solo el nombre -->
+            <h2>ELIXIR</h2>
         </section>
+
         <section id="catalogo">
-            <h2>Nuestras Fragancias</h2>
+            <h2>Nuestra Colección</h2>
+            
             <div id="grid-productos" class="grid-productos">
+                <!-- Diseñador -->
+                <div class="producto-placeholder">
+                    <h3>1 Million</h3>
+                    <p class="marca">Paco Rabanne</p>
+                    <p class="tipo">Diseñador</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Eros</h3>
+                    <p class="marca">Versace</p>
+                    <p class="tipo">Diseñador</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Sauvage</h3>
+                    <p class="marca">Dior</p>
+                    <p class="tipo">Diseñador</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Y Eau de Parfum</h3>
+                    <p class="marca">Yves Saint Laurent</p>
+                    <p class="tipo">Diseñador</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Bleu</h3>
+                    <p class="marca">Chanel</p>
+                    <p class="tipo">Diseñador</p>
+                </div>
+
+                <!-- Árabes -->
                 <div class="producto-placeholder">
                     <h3>Club de Nuit Intense</h3>
-                    <p>Armaf - Árabe</p>
-                    <p style="color: #d4af37; font-weight: bold; margin-top: 10px;">$45.00</p>
+                    <p class="marca">Armaf</p>
+                    <p class="tipo">Árabe</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Asad</h3>
+                    <p class="marca">Lattafa</p>
+                    <p class="tipo">Árabe</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>9pm</h3>
+                    <p class="marca">Afnan</p>
+                    <p class="tipo">Árabe</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Khamrah</h3>
+                    <p class="marca">Lattafa</p>
+                    <p class="tipo">Árabe</p>
+                </div>
+                <div class="producto-placeholder">
+                    <h3>Detour Noir</h3>
+                    <p class="marca">Al Haramain</p>
+                    <p class="tipo">Árabe</p>
                 </div>
             </div>
         </section>
     </main>
-    <footer><p>&copy; 2026 Web Elixiir. Todos los derechos reservados.</p></footer>
+
+    <footer>
+        <p>&copy; 2026 ELIXIR. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
